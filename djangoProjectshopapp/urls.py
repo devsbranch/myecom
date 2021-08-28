@@ -18,5 +18,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('onlinemarking/', include('onlinemarking.urls'))
+    path('api/onlinemarking/', include('onlinemarking.urls')),
+    path('users/',include('users.urls'))
 ]
+
