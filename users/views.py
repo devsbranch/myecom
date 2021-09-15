@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 
 
+
+
 def Home_page(request):
     return render(request, 'userstemp.html')
 
@@ -22,5 +24,4 @@ def register(request):
      return render(request, 'register.html')
 
 
-def login(request):
-    pass
+
