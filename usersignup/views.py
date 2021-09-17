@@ -4,7 +4,7 @@ from django.urls import reverse
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 
 def registration(request):
@@ -21,8 +21,10 @@ def registration(request):
 
 
 def loginuser(request):
+    form = AuthenticationForm
+    form = AuthenticationForm(request, data=request.POST)
     if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST)
+
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
@@ -39,5 +41,8 @@ def loginuser(request):
     return render(request,template_name="login.html", context={'login_form': form})
 
 
-def logout(request):
-    pass
+
+def logoutuser(request):
+    logout(request)
+    messages.info(request, "user logout")
+    return render(request, template_name="logout.html")

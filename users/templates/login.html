@@ -7,11 +7,11 @@
 <div class="container py-5">
 
     <h3>Login panel</h3>
-    <form method="post">
+    <form method="post" action="login.html">
         {% csrf_token %}
         {{ login_form |crispy}}
         <button class="btn btn-primary" type="submit">login</button>
-        <p class="text-left"> if user  has no account please register <a href="register.html">Create an account</a>   </p>
+        <p class="text-left"> if user  has no account please register <a href="registration">Create an account</a>   </p>
 
 
 
